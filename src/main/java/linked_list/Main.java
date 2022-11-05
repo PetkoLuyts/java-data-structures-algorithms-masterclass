@@ -2,20 +2,19 @@ package linked_list;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList linkedList = new LinkedList();
+        LinkedList l1 = new LinkedList();
+        LinkedList l2 = new LinkedList();
 
-        linkedList.createLinkedList(1);
-        linkedList.insertNode(9);
-        linkedList.insertNode(5);
-        linkedList.insertNode(10);
-        linkedList.insertNode(2);
+        l1.insertNode(7);
+        l1.insertNode(1);
+        l1.insertNode(6);
 
-        linkedList.traverseLinkedList();
+        l2.insertNode(5);
+        l2.insertNode(9);
+        l2.insertNode(2);
 
-        LinkedList.Node n = linkedList.nthToLast(2);
-
-        linkedList = linkedList.partition( 4);
-
-        linkedList.traverseLinkedList();
+        LinkedList result = new LinkedList();
+        LinkedList result1 = result.sumLists(l1, l2);
+        result1.traverseLinkedList();
     }
 }

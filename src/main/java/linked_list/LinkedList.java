@@ -23,6 +23,11 @@ public class LinkedList {
     }
 
     public void insertNode(int nodeValue) {
+        if (head == null) {
+            createLinkedList(nodeValue);
+            return;
+        }
+
         Node newNode = new Node();
         newNode.value = nodeValue;
         newNode.next = null;
@@ -106,5 +111,30 @@ public class LinkedList {
 
         tail.next = null;
         return this;
+    }
+
+    public LinkedList sumLists(LinkedList l1, LinkedList l2) {
+        Node n1 = l1.head;
+        Node n2 = l2.head;
+        int carry = 0;
+        LinkedList resultList = new LinkedList();
+
+        while (n1 != null || n2 != null) {
+            int result = carry;
+
+            if (n1 != null) {
+                result += n1.value;
+                n1 = n1.next;
+            }
+            if (n2 != null) {
+                result += n2.value;
+                n2 = n2.next;
+            }
+
+            resultList.insertNode(result % 10);
+            carry = result / 10;
+        }
+
+        return resultList;
     }
 }
