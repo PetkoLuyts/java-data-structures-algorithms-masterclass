@@ -12,8 +12,8 @@ public class Main {
 
         linkedList.traverseLinkedList();
 
-        linkedList.deleteDuplicates();
+        LinkedList.Node n = linkedList.nthToLast(2);
 
-        linkedList.traverseLinkedList();
+        System.out.println(n.value);
     }
 }
