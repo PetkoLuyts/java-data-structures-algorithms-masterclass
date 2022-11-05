@@ -5,15 +5,17 @@ public class Main {
         LinkedList linkedList = new LinkedList();
 
         linkedList.createLinkedList(1);
-        linkedList.insertNode(2);
-        linkedList.insertNode(3);
-        linkedList.insertNode(2);
+        linkedList.insertNode(9);
         linkedList.insertNode(5);
+        linkedList.insertNode(10);
+        linkedList.insertNode(2);
 
         linkedList.traverseLinkedList();
 
         LinkedList.Node n = linkedList.nthToLast(2);
 
-        System.out.println(n.value);
+        linkedList = linkedList.partition( 4);
+
+        linkedList.traverseLinkedList();
     }
 }

@@ -85,4 +85,26 @@ public class LinkedList {
 
         return p1;
     }
+
+    public LinkedList partition(int x) {
+        Node currentNode = head;
+        tail = head;
+
+        while (currentNode != null) {
+            Node next = currentNode.next;
+
+            if (currentNode.value < x) {
+                currentNode.next = head;
+                head = currentNode;
+            } else {
+                tail.next = currentNode;
+                tail = currentNode;
+            }
+
+            currentNode = next;
+        }
+
+        tail.next = null;
+        return this;
+    }
 }
