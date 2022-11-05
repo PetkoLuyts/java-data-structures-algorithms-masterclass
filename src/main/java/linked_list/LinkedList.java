@@ -1,5 +1,7 @@
 package linked_list;
 
+import java.util.HashSet;
+
 public class LinkedList {
     public Node head;
     public Node tail;
@@ -43,5 +45,26 @@ public class LinkedList {
         }
 
         System.out.println();
+    }
+
+    public void deleteDuplicates() {
+        HashSet<Integer> hashSet = new HashSet<>();
+
+        Node current = head;
+        Node prev = null;
+
+        while (current != null) {
+            int currentValue = current.value;
+
+            if (hashSet.contains(currentValue)) {
+                prev.next = current.next;
+                size--;
+            } else {
+                hashSet.add(currentValue);
+                prev = current;
+            }
+
+            current = current.next;
+        }
     }
 }
