@@ -1,6 +1,8 @@
 package graph;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Stack;
 
 public class GraphAdjacencyList {
     ArrayList<GraphNode> nodeList = new ArrayList<>();
@@ -8,6 +10,7 @@ public class GraphAdjacencyList {
     public static class GraphNode {
         public String name;
         public int index;
+        public boolean isVisited = false;
         public ArrayList<GraphNode> neighbours = new ArrayList<>();
 
         public GraphNode(String name, int index) {
@@ -44,5 +47,57 @@ public class GraphAdjacencyList {
         }
 
         return s.toString();
+    }
+
+    public void bfsVisit(GraphNode node) {
+        LinkedList<GraphNode> queue = new LinkedList<>();
+        queue.add(node);
+
+        while (!queue.isEmpty()) {
+            GraphNode currentNode = queue.remove(0);
+            currentNode.isVisited = true;
+            System.out.print(currentNode.name + " ");
+
+            for (GraphNode neighbour : currentNode.neighbours) {
+                if (!neighbour.isVisited) {
+                    queue.add(neighbour);
+                    neighbour.isVisited = true;
+                }
+            }
+        }
+    }
+
+    public void bfs() {
+        for (GraphNode node : nodeList) {
+            if (!node.isVisited) {
+                bfsVisit(node);
+            }
+        }
+    }
+
+    public void dfsVisit(GraphNode node) {
+        Stack<GraphNode> stack = new Stack<>();
+        stack.push(node);
+
+        while (!stack.isEmpty()) {
+            GraphNode currentNode = stack.pop();
+            currentNode.isVisited = true;
+            System.out.print(currentNode.name + " ");
+
+            for (GraphNode neighbour : currentNode.neighbours) {
+                if (!neighbour.isVisited) {
+                    stack.push(neighbour);
+                    neighbour.isVisited = true;
+                }
+            }
+        }
+    }
+
+    public void dfs() {
+        for (GraphNode node : nodeList) {
+            if (!node.isVisited) {
+                dfsVisit(node);
+            }
+        }
     }
 }
