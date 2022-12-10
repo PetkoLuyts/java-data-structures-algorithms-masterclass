@@ -11,7 +11,7 @@ public class DisjointSet {
         public ArrayList<WeightedNode> neighbours = new ArrayList<WeightedNode>();
         public HashMap<WeightedNode, Integer> weightMap = new HashMap<WeightedNode, Integer>();
         public boolean isVisited = false;
-        public WeightedGraph.WeightedNode parent;
+        public WeightedNode parent;
         public int distance;
         public DisjointSet set;
         public int index;
