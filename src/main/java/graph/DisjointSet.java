@@ -8,8 +8,8 @@ public class DisjointSet {
 
     public static class WeightedNode implements Comparable<WeightedGraph.WeightedNode> {
         public String name;
-        public ArrayList<WeightedGraph.WeightedNode> neighbours = new ArrayList<>();
-        public HashMap<WeightedGraph.WeightedNode, Integer> weightMap = new HashMap<>();
+        public ArrayList<WeightedNode> neighbours = new ArrayList<WeightedNode>();
+        public HashMap<WeightedNode, Integer> weightMap = new HashMap<WeightedNode, Integer>();
         public boolean isVisited = false;
         public WeightedGraph.WeightedNode parent;
         public int distance;
