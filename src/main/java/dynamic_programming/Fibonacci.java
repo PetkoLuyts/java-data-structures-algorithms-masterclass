@@ -3,7 +3,7 @@ package dynamic_programming;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class FibonacciMemoization {
+public class Fibonacci {
     public static void main(String[] args) {
         HashMap<Integer, Integer> memo = new HashMap<>();
         System.out.println(fibMemo(6, memo));
